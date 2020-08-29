@@ -37,9 +37,6 @@ namespace HugeChart.Presentation
         }
 
 
-
-
-
         #region Maximum and Minimum for scale, No need after setup Range class
         //public double Maximum
         //{
@@ -63,6 +60,8 @@ namespace HugeChart.Presentation
         //public static readonly DependencyProperty MinimumProperty =
         //    DependencyProperty.Register("Minimum", typeof(double), typeof(HorizontalScale), new PropertyMetadata(default(double), OnParameterChanged));
         #endregion
+        
+        
         public Range Range
         {
             get { return (Range)GetValue(RangeProperty); }

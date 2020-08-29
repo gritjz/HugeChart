@@ -16,7 +16,6 @@ namespace HugeChart.Data
 
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-
             //split string and assign to an array
 
             string removeSpace = value.ToString().Replace(" ", string.Empty);
