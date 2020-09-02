@@ -27,8 +27,16 @@ namespace HugeChart.Presentation
             //Use when needs Maximum and Minimum Dependency
             //SetCurrentValue(MinimumProperty, 0d);
             //SetCurrentValue(MaximumProperty, 100d);
+            
+            //Range and Step
             SetCurrentValue(RangeProperty, new Range { From = 0d, To = 100d });
             SetCurrentValue(StepProperty, 10d);
+
+            //Stroke color length and thickness
+            SetCurrentValue(StrokeProperty, Brushes.Lime);
+            SetCurrentValue(StrokeLengthProperty, 12d);
+            SetCurrentValue(StrokeThicknessProperty, 2d);
+
 
             SizeChanged += (s, e) =>
             {
@@ -86,6 +94,50 @@ namespace HugeChart.Presentation
 
 
 
+
+        /// <summary>
+        /// Stroke Color
+        /// </summary>
+        public Brush Stroke
+        {
+            get { return (Brush)GetValue(StrokeProperty); }
+            set { SetValue(StrokeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Stroke.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty StrokeProperty =
+            DependencyProperty.Register("Stroke", typeof(Brush), typeof(HorizontalScale), new PropertyMetadata(default(Brush), OnParameterChanged));
+
+        /// <summary>
+        /// Stroke Length
+        /// </summary>
+        public double StrokeLength
+        {
+            get { return (double)GetValue(StrokeLengthProperty); }
+            set { SetValue(StrokeLengthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for StrokeLength.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty StrokeLengthProperty =
+            DependencyProperty.Register("StrokeLength", typeof(double), typeof(HorizontalScale), new PropertyMetadata(default(double), OnParameterChanged));
+
+
+        /// <summary>
+        /// Stroke Thickness
+        /// </summary>
+        public double StrokeThickness
+        {
+            get { return (double)GetValue(StrokeThicknessProperty); }
+            set { SetValue(StrokeThicknessProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for StrokeThickness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty StrokeThicknessProperty =
+            DependencyProperty.Register("StrokeThickness", typeof(double), typeof(HorizontalScale), new PropertyMetadata(default(double), OnParameterChanged));
+
+
+
+
         private static void OnParameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
             => (d as HorizontalScale)?.Refresh();
 
@@ -106,9 +158,9 @@ namespace HugeChart.Presentation
                     X1 = x,
                     X2 = x,
                     Y1 = 0,
-                    Y2 = 10,
-                    Stroke = Brushes.Brown,
-                    StrokeThickness = 2d,
+                    Y2 = this.StrokeLength,
+                    Stroke = this.Stroke,
+                    StrokeThickness = this.StrokeThickness,
                 });
                 v += Step;
             } while (v <= Range.Max);
