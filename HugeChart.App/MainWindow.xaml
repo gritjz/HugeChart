@@ -8,7 +8,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="Beige">
     <Grid>
-        <hc:HorizontalScale Range="0,110" Step="10"/>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <hc:HorizontalScale Grid.Column="1" Grid.Row="0" 
+                            Range="0,110" Step="10" Stroke="DarkBlue" StrokeLength="20" StrokeThickness="1"/>
+        <hc:VerticalScale Grid.Column="0" Grid.Row="1" 
+            Range="0,110" Step="10" Stroke="DarkBlue" StrokeLength="20" StrokeThickness="1"/>
     </Grid>
 </Window>
