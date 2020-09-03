@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HugeChart.App"
         xmlns:hc="clr-namespace:HugeChart.Presentation;assembly=HugeChart.Presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Beige">
+        Title="HugeChart" Height="450" Width="600" Foreground="#FFCB40" Background="#034569">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -18,9 +18,51 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
-        <hc:HorizontalScale Grid.Column="1" Grid.Row="0" 
-                            Range="0,110" Step="10" Stroke="DarkBlue" StrokeLength="20" StrokeThickness="1"/>
-        <hc:VerticalScale Grid.Column="0" Grid.Row="1" 
-            Range="0,110" Step="10" Stroke="DarkBlue" StrokeLength="20" StrokeThickness="1"/>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Border Margin="-1" BorderBrush="#BF9830" BorderThickness="2"/>
+            <hc:ChartFrameLine  HorizontalFrameCount="8" VerticalFrameCount="10" />
+            <!--<hc:ChartDataLine  Stroke="#FF3900" StrokeThickness="3" StrokeDashArray="3 2"/>-->
+            <hc:ChartDataLineAsync HorizontalRange="300,0"
+                                   VerticalRange="0,100"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <hc:HorizontalScale 
+                Height="10"
+                Margin="0,0,0,-10"
+                VerticalAlignment="Bottom"
+                Range="200, 0" 
+                Step="25" 
+                Stroke="#BF9830" 
+                StrokeLength="10" 
+                StrokeThickness="2"/>
+            
+            <hc:HorizontalLabel
+                Height="26"
+                FontSize="10"
+                Range="200,0"
+                Step="50"
+                VerticalAlignment="Bottom"
+                HorizontalLabelAlignment="Center"
+                />
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="1" >
+            <hc:VerticalScale 
+                Width="10"
+                Margin="-10,0,0,0"
+                HorizontalAlignment="Left"
+                Range="200, 0" 
+                Step="20" 
+                Stroke="#BF9830" 
+                StrokeLength="10" 
+                StrokeThickness="2"/>
+            
+            <hc:VerticalLabel 
+                FontSize="12"
+                Range="0,100"
+                Step="20"
+                VerticalLabelAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>
