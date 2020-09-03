@@ -117,7 +117,6 @@ namespace HugeChart.Presentation
                     p =>
                     {
                         points.Add(Normalize(p));
-
                     }
                     );
                 geom.BeginFigure(points[0], false, false);
