@@ -26,6 +26,8 @@ namespace HugeChart.Presentation
             CanvasRoot = new Canvas();
             Content = CanvasRoot;
 
+            //Create 100000 points to test
+            //WARNING: Huge data could crash your PC
             ChartDataSeries points = new ChartDataSeries();
             Random random = new Random();
             for (int i = 0; i < 100000; i++) 
