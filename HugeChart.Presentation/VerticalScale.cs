@@ -14,7 +14,7 @@ namespace HugeChart.Presentation
         protected override void Refresh()
         {
             root.Children.Clear();
-            if (RenderSize.Width <= 0) return;
+            if (CanNotRender()) return;
 
             // double v = Minimum;
             double v = Range.Min;

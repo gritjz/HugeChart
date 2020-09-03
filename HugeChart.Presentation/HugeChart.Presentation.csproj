@@ -54,6 +54,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,6 +69,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartDataLine.cs" />
+    <Compile Include="ChartDataLineAsync.cs" />
+    <Compile Include="ChartDataSeries.cs" />
+    <Compile Include="ChartFrameLine.cs" />
+    <Compile Include="HorizontalLabel.cs" />
     <Compile Include="HorizontalScale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -82,7 +88,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ScaleComponent.cs" />
     <Compile Include="ScaleControl.cs" />
+    <Compile Include="ScaleLabel.cs" />
+    <Compile Include="VerticalLabel.cs" />
     <Compile Include="VerticalScale.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -14,31 +14,19 @@ namespace HugeChart.Presentation
     /// <summary>
     /// Interaction logic for HorizontalScale.xaml
     /// </summary>
-    public abstract class ScaleControl : UserControl
+    public abstract class ScaleControl : ScaleComponent
     {
-        protected Canvas root;
+
         public ScaleControl()
         {
-            root = new Canvas();
-            Content = root;
             //Use when needs Maximum and Minimum Dependency
             //SetCurrentValue(MinimumProperty, 0d);
             //SetCurrentValue(MaximumProperty, 100d);
-
-            //Range and Step
-            SetCurrentValue(RangeProperty, new Range { From = 0d, To = 100d });
-            SetCurrentValue(StepProperty, 10d);
 
             //Stroke color length and thickness
             SetCurrentValue(StrokeProperty, Brushes.Lime);
             SetCurrentValue(StrokeLengthProperty, 12d);
             SetCurrentValue(StrokeThicknessProperty, 2d);
-
-
-            SizeChanged += (s, e) =>
-            {
-                (s as ScaleControl)?.Refresh();
-            };
         }
 
 
@@ -66,25 +54,6 @@ namespace HugeChart.Presentation
         //    DependencyProperty.Register("Minimum", typeof(double), typeof(HorizontalScale), new PropertyMetadata(default(double), OnParameterChanged));
         #endregion
 
-        public Range Range
-        {
-            get { return (Range)GetValue(RangeProperty); }
-            set { SetValue(RangeProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Range.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty RangeProperty =
-            DependencyProperty.Register("Range", typeof(Range), typeof(ScaleControl), new PropertyMetadata(default(Range), OnParameterChanged));
-
-        public double Step
-        {
-            get { return (double)GetValue(StepProperty); }
-            set { SetValue(StepProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Step.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty StepProperty =
-            DependencyProperty.Register("Step", typeof(double), typeof(ScaleControl), new PropertyMetadata(default(double), OnParameterChanged));
 
         /// <summary>
         /// Stroke Color
@@ -126,16 +95,13 @@ namespace HugeChart.Presentation
         public static readonly DependencyProperty StrokeThicknessProperty =
             DependencyProperty.Register("StrokeThickness", typeof(double), typeof(ScaleControl), new PropertyMetadata(default(double), OnParameterChanged));
 
+        /// <summary>
+        /// no render when step = 0
+        /// </summary>
+        /// <returns></returns>
+        protected override bool CanNotRender()
+           => base.CanNotRender() || Step == 0;
 
 
-
-        protected static void OnParameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-            => (d as ScaleControl)?.Refresh();
-
-        protected abstract void Refresh();
-
-
-        //private double Normalize(double v) => (v - Minimum) / (Maximum - Minimum) * RenderSize.Width;
-        protected abstract double Normalize(double v);
     }
 }
