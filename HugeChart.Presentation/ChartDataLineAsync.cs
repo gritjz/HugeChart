@@ -30,12 +30,12 @@ namespace HugeChart.Presentation
             //WARNING: Huge data could crash your PC
             ChartDataSeries points = new ChartDataSeries();
             Random random = new Random();
-            for (int i = 0; i < 100000; i++) 
+            for (int i = 0; i < 100; i++) 
             {
                 points.Add(
                     new System.Windows.Point(
                         random.Next(0, 300),
-                        random.Next(-100, 100)
+                        random.Next(0, 100)
                     ));
             }
             ChartDataSeries = points;

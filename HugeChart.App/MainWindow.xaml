@@ -22,9 +22,13 @@
         <Grid Grid.Column="1" Grid.Row="1">
             <Border Margin="-1" BorderBrush="#BF9830" BorderThickness="2"/>
             <hc:ChartFrameLine  HorizontalFrameCount="8" VerticalFrameCount="10" />
-            <!--<hc:ChartDataLine  Stroke="#FF3900" StrokeThickness="3" StrokeDashArray="3 2"/>-->
-            <hc:ChartDataLineAsync HorizontalRange="300,0"
-                                   VerticalRange="0,100"/>
+            <hc:ChartDataLine  
+                Stroke="#FF3900" 
+                StrokeThickness="3" 
+                StrokeDashArray="3 2"/>
+            <hc:ChartDataLineAsync 
+                HorizontalRange="300,0"  
+                VerticalRange="0,100"/>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="0">
