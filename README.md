@@ -13,6 +13,6 @@ __HugeChart__ is a Big Data visualization project which realized an UserControl 
 __*Programming is Done*__,other features will be added soon.
 
 
-![image](http://github.com/gritjz/HugeChart/raw/master/Image/Result.jpg)
+![image](https://raw.githubusercontent.com/gritjz/HugeChart/master/Image/Result.jpg)
 
 @grijz :+1: 
