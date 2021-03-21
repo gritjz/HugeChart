@@ -10,7 +10,8 @@ __HugeChart__ is a Big Data visualization project which realized an UserControl 
 * Multiple data sources appliable
 
 ## Project Status
-__*Programming is Done*__,other features will be added soon.
+__*DONE*__
+Available to migrant to other any project
 
 
 ![image](https://raw.githubusercontent.com/gritjz/HugeChart/master/Image/Result.jpg)
